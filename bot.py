@@ -109,7 +109,7 @@ async def comment_handler(update: Update, context):
     try:
         await context.bot.send_message(chat_id=ADMIN_CHAT_ID, text=text, parse_mode="Markdown")
         await update.message.reply_text("✅ So‘rovingiz qabul qilindi! Operatorlar tezda aloqaga chiqadi.\n\n📞 Admin: @Izdihom_MG", reply_markup=main_menu())
-    except Exception as e:
+    except Exception:
         await update.message.reply_text("❌ Xatolik. Iltimos, @Izdihom_MG ga yozing.")
     context.user_data.clear()
     return ConversationHandler.END
