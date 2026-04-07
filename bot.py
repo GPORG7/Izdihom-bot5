@@ -58,49 +58,28 @@ async def button_handler(update: Update, context):
     data = query.data
 
     if data == "main_menu":
-        await query.edit_message_caption(
-            caption="Asosiy menyu:",
-            reply_markup=main_menu()
-        )
+        await query.edit_message_caption(caption="Asosiy menyu:", reply_markup=main_menu())
     elif data == "menu_design":
         kb = [[InlineKeyboardButton(f"1 poster (1 var) – {prices['poster1']}", callback_data="poster1")],
               [InlineKeyboardButton(f"1 poster (4 var) – {prices['poster4']}", callback_data="poster4")],
               [InlineKeyboardButton("◀️ Orqaga", callback_data="main_menu")]]
-        await query.edit_message_caption(
-            caption="🎨 *AI Dizayn narxlari:*",
-            reply_markup=InlineKeyboardMarkup(kb),
-            parse_mode="Markdown"
-        )
+        await query.edit_message_caption(caption="🎨 *AI Dizayn*", reply_markup=InlineKeyboardMarkup(kb), parse_mode="Markdown")
     elif data == "menu_video":
         kb = [[InlineKeyboardButton(f"8 sek video – {prices['video8']}", callback_data="video8")],
               [InlineKeyboardButton(f"Reel 25-30 sek – {prices['reel']}", callback_data="reel")],
               [InlineKeyboardButton("◀️ Orqaga", callback_data="main_menu")]]
-        await query.edit_message_caption(
-            caption="🎬 *AI Video narxlari:*",
-            reply_markup=InlineKeyboardMarkup(kb),
-            parse_mode="Markdown"
-        )
+        await query.edit_message_caption(caption="🎬 *AI Video*", reply_markup=InlineKeyboardMarkup(kb), parse_mode="Markdown")
     elif data == "menu_packages":
         kb = [[InlineKeyboardButton(f"START – {prices['start']}", callback_data="start")],
               [InlineKeyboardButton(f"STANDART – {prices['standart']} ⭐", callback_data="standart")],
               [InlineKeyboardButton(f"BIZNES – {prices['biznes']}", callback_data="biznes")],
               [InlineKeyboardButton("◀️ Orqaga", callback_data="main_menu")]]
-        await query.edit_message_caption(
-            caption="📦 *Oylik paketlar:*",
-            reply_markup=InlineKeyboardMarkup(kb),
-            parse_mode="Markdown"
-        )
+        await query.edit_message_caption(caption="📦 *Oylik paketlar*", reply_markup=InlineKeyboardMarkup(kb), parse_mode="Markdown")
     elif data == "help":
-        await query.edit_message_caption(
-            caption="Yordam:\n1. Xizmat tanlang\n2. Telefon raqam\n3. Izoh qoldiring\nOperator bog‘lanadi.",
-            reply_markup=main_menu()
-        )
+        await query.edit_message_caption(caption="Yordam:\n1. Xizmat tanlang\n2. Telefon raqam\n3. Izoh qoldiring\nOperator bog‘lanadi.", reply_markup=main_menu())
     else:
         context.user_data['selected'] = data
-        await query.edit_message_caption(
-            caption=f"✅ Siz tanladingiz: *{descriptions[data]}* – {prices[data]}\n\n📞 Endi telefon raqamingizni yuboring (+998901234567):\nBekor qilish uchun /cancel",
-            parse_mode="Markdown"
-        )
+        await query.edit_message_caption(caption=f"✅ Siz tanladingiz: *{descriptions[data]}* – {prices[data]}\n\n📞 Endi telefon raqamingizni yuboring (+998901234567):\nBekor qilish uchun /cancel", parse_mode="Markdown")
         return PHONE
 
 async def phone_handler(update: Update, context):
