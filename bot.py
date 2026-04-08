@@ -4,7 +4,7 @@ from telegram.ext import Application, CommandHandler, CallbackQueryHandler, Mess
 
 BOT_TOKEN = "8563248702:AAFacFDVYVYVKpS82DL6S3zRBfIFmNm9mD8"
 ADMIN_CHAT_ID = 7534509370
-ADMIN_USERNAME = "Izdihom_MG"
+ADMIN_USERNAME = "@Azizjon_Asadov"
 LOGO_URL = "https://iili.io/B7rbMGI.png"
 
 PHONE, COMMENT = range(2)
